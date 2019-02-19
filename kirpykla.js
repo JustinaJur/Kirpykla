@@ -77,10 +77,6 @@ function collectHeaders(td) {
 function createHeaders(td, col) {
    var table = document.createElement("table");
 
-   //remove "Name" data from col 
-   //var index = col.indexOf("Name");
-   //col.splice(index, 1);
-
    //create first row in table, insert it for headers section
    var tr = table.insertRow(-1);
 
