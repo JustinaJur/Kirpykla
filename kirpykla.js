@@ -468,7 +468,7 @@ var reservations = {
       },
       {
          "Time": "10:30",
-         "Name": "Ruta"
+         "Name": "none"
       },
       {
          "Time": "10:45",
@@ -629,15 +629,15 @@ var reservations = {
       },
       {
          "Time": "10:15",
-         "Name": "Mikhail"
+         "Name": "none"
       },
       {
          "Time": "10:30",
-         "Name": "Ruta"
+         "Name": "none"
       },
       {
          "Time": "10:45",
-         "Name": "Liudvikas",
+         "Name": "none",
       },
       {
          "Time": "11:00",
