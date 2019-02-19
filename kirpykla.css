@@ -49,15 +49,20 @@
      display: block;
      width: 100%;
    }
-   
+   .container-outer {
+      display: grid;
+
+   }
    .container{
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-   
    place-items:center;
    background-color: LightSteelBlue;
    margin: 20px;
    padding: 20px;
+   }
+   section{
+	   display: grid;
+	   place-items: center;
    }
    
    .dinamicTable, .dinamicTable2 {
