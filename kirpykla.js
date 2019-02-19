@@ -1141,7 +1141,7 @@ var reservations = {
    25: [
       {
          "Time": "10:00",
-         "Name": "Gediminas"
+         "Name": "none"
       },
       {
          "Time": "10:15",
@@ -1163,7 +1163,7 @@ var reservations = {
    26: [
       {
          "Time": "10:00",
-         "Name": "Lina"
+         "Name": "none"
       },
       {
          "Time": "10:15",
