@@ -7,8 +7,7 @@ document.querySelector(".green").addEventListener("click", function(event) {
   
   //highlight selected day on calendar
   var tds = document.querySelector(".green").querySelectorAll("td");
-  tds = Array.from(tds);
-  console.log(tds); 
+  tds = Array.from(tds); 
   for(var i=0; i<tds.length; i++){
   tds[i].addEventListener("click", function() {
   var current = document.getElementsByClassName("active");
