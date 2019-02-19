@@ -1,4 +1,4 @@
-# Simple appointment registration system created with pure JavaScript, CSS, HTML
+# Simple appointment registration system created with pure JavaScript
 
 
 ## General Info
@@ -8,9 +8,9 @@ provider can edit (insert/delete) inserted data.
 
 ## Technologies
 Project is made with:
-Vanilla JavaScript
-HTML
-CSS grid
+Vanilla JavaScript,
+HTML,
+CSS grid,
 jsCalendar v1.4.3 library
 
 
