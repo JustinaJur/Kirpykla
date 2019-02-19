@@ -1,3 +1,3 @@
 # JustinaJur.github.io
 
-https://justinajur.github.io/JSON2
+https://justinajur.github.io/Kirpykla
