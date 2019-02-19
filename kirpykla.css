@@ -1,0 +1,180 @@
+* {
+    box-sizing: border-box;
+    }
+    
+   body {
+   margin: 0;
+   font-family: 'Roboto', sans-serif;
+   background-color: LightSteelBlue;
+   
+   }
+   
+   h1{
+   text-align: center;
+   background-color: BlanchedAlmond;
+   padding: 20px 0px;
+   margin: 0;
+   margin-bottom: 0;
+   font-size: 2rem;
+   }
+       
+   h3, p{
+   text-align: center;
+   }
+   .header-small{
+   text-align: center;
+   background-color: BlanchedAlmond;
+   margin: 0;
+   padding-bottom: 20px;
+   }
+   form{
+   text-align: center;
+   }
+   .nameButton, .cancelButton, .searchButton {
+   color: Snow;
+   background-color: DimGrey;
+   border: 2px solid black;
+   letter-spacing: 1px;
+   height: 100%;
+   font-weight: 600;
+   }
+   
+   input{
+    padding: 7px;
+    margin: 7px;
+    height: 30px;
+   }
+   
+   .pic {
+     display: block;
+     width: 100%;
+   }
+   
+   .container{
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+   
+   place-items:center;
+   background-color: LightSteelBlue;
+   margin: 20px;
+   padding: 20px;
+   }
+   
+   .dinamicTable, .dinamicTable2 {
+   height: 300px;
+   width: auto;
+   display: grid;
+   place-items: center;
+   grid-template-columns: 1fr;
+   
+   }
+   
+   .dinamicTable table, .dinamicTable2 table {
+   background-color: LightSteelBlue;
+   display: grid;
+   place-items: center;
+   grid-template-columns: 1fr;
+   background-color: orange;
+   }
+   
+   .dinamicTable td, .dinamicTable2 td{
+   padding: 15px;
+   margin: 10px;
+   }
+   tbody{
+   margin: 10px;
+   }
+   tr{
+   height: 25px;
+   padding: 15px;
+   }
+   tableHeader{
+    display:none;   
+   }
+   
+   .hide{
+   display: none;
+   }
+   .red{
+   background-color: red;
+   color: red;
+   pointer-events: none;
+   }
+   .redText{
+   color: red;
+   }
+   .visible{
+   display: block;
+   }
+   .yellow{
+   color: yellow;
+   }
+   .white{
+	color: white;
+   }
+   #clientPage, #salonPage{
+   padding-bottom: 50px;
+   }
+   .tab {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   }
+   .tab button {
+     background-color:#85144b;
+     border: 3px solid black;
+     cursor: pointer;
+     padding: 14px 16px;
+     transition: 0.3s;
+     color: white;
+     font-size: 1.5rem;
+   }
+   .tab button:hover, .tab button.active {
+     background-color: #FFDC00;
+   }
+   .tabcontent {
+     display: none;
+     padding: 0;
+     margin: 0;
+     border: 1px solid #ccc;
+     border-top: none;
+   }
+   
+   .cancelButton {
+   background-color: salmon;
+   }
+   
+   @media screen and (max-width: 960px) {
+      .tab{
+      grid-template-columns: 1fr;
+      }
+      .tab button{
+      max-height: 80px;
+      }
+      }
+      
+      @media screen and (max-width: 600px) {
+      .tabcontent h1{
+      font-size: 1.5rem;
+      }
+      .dinamicTable, .dinamicTable2{
+      width: 350px;
+      }
+      .register{
+      display: grid;
+      place-items: center;
+      grid-gap: 15px;
+      }
+      .container {
+      place-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+      }
+      
+      @media screen and (max-width: 450px) {
+     .dinamicTable, .dinamicTable2{
+      width: 250px;
+   }
+     .tabcontent h1, h3{
+     font-size: 0.9rem;
+   }
+   }

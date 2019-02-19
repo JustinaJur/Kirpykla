@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title>KIRPYKLA</title>
+   <link rel="stylesheet" type="text/css" href="kirpykla.css">
+   <script src="https://unpkg.com/simple-jscalendar@1.4.3/source/jsCalendar.min.js"
+      integrity="sha384-JqNLUzAxpw7zEu6rKS/TNPZ5ayCWPUY601zaig7cUEVfL+pBoLcDiIEkWHjl07Ot"
+      crossorigin="anonymous"></script>
+   <link rel="stylesheet" href="https://unpkg.com/simple-jscalendar@1.4.3/source/jsCalendar.min.css"
+      integrity="sha384-+OB2CadpqXIt7AheMhNaVI99xKH8j8b+bHC8P5m2tkpFopGBklD3IRvYjPekeWIJ" crossorigin="anonymous">
+   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<style>
+   .container-outer {
+      display: grid;
+
+   }
+
+   .jsCalendar.material-theme.green thead {
+      background-color: CadetBlue;
+      background-color: DimGrey;
+   }
+
+   .jsCalendar.green tbody td.jsCalendar-current {
+      background-color: Steelblue;
+   }
+
+   .auto-jsCalendar td.active {
+      background-color: #0074D9;
+   }
+
+   .auto-jsCalendar td:hover {
+      background-color: #0074D9;
+   }
+</style>
+
+<body>
+
+
+   <div class="tab">
+      <button class="tablinks" onclick="showPage(event, 'clientPage')">Klientams</button>
+      <img class="pic" src="pink.jpg" alt="pink chairs" height="600px">
+      <button class="tablinks" onclick="showPage(event, 'salonPage')">Darbuotojams</button>
+   </div>
+
+   <div class="container-outer">
+
+      <div id="clientPage" class="tabcontent">
+         <div>
+            <h1> SVEIKI ATVYKĘ Į MŪSŲ KIRPYKLĄ</h1>
+            <h3 class="header-small"> Čia galite rezervuoti apsilankymo laiką. </h3>
+         </div>
+
+         <div class="container">
+            <section>
+               <h3> Peržiūrėkite laisvus laikus kalendoriuje. </h3>
+               <div class="auto-jsCalendar material-theme green" data-month-format="##/YYYY" data-max="28/02/2019">
+               </div>
+            </section>
+
+
+            <form class="register" onSubmit="return false;">
+               <h3>Įrašykite savo vardą ir pasirinkite laiką </h3>
+               <input class="firstName" type="text" placeholder="jūsų vardas .." name="firstName" required>
+               <input class="nameButton" type="button" value="Registruotis" onclick="" name="submit">
+			    <div class="dinamicTable">
+               </div>
+            </form>
+
+         </div>
+      </div>
+      <div id="salonPage" class="tabcontent">
+         <h1> REGISTRACIJOS</h1>
+         <div class="container">
+            <section>
+               <p> Pasirinkite datą </p>
+               <div class="auto-jsCalendar material-theme green" data-month-format="##/YYYY" data-max="28/02/2019">
+               </div>
+            </section>
+            <form class="register" onSubmit="return false;">
+               <input class="firstName" type="text" placeholder="įrašykite vardą" name="firstName" required>
+               <input class="nameButton" type="button" value="Registruoti" onclick="" name="submit">       
+               <input class="cancelButton" type="button" value="Atšaukti rezervaciją" onclick="" name="submit">
+
+               <div class="dinamicTable2">
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</body>
+<script type="text/javascript" src="kirpykla.js">
+
+</script>
+
+</html>
