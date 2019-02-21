@@ -2,25 +2,25 @@ var reservations;
 
 //first table
 document.querySelector(".green").addEventListener("click", function (event) {
-   var clickedDay = event.target;
-   var td = event.target.innerHTML;
+   let clickedDay = event.target;
+   let td = event.target.innerHTML;
 
    //highlight selected day on calendar
-   var tds = document.querySelector(".green").querySelectorAll("td");
+   let tds = document.querySelector(".green").querySelectorAll("td");
    tds = Array.from(tds);
    for (var i = 0; i < tds.length; i++) {
-      tds[i].addEventListener("click", function () {
-         var current = document.getElementsByClassName("active");
+      tds[i].addEventListener("click", () => {
+         let current = document.getElementsByClassName("active");
          current[0].className = current[0].className.replace(" active", "");
          this.className += " active";
       })
    };
 
 
-   var nameButton = document.querySelector(".nameButton");
+   let nameButton = document.querySelector(".nameButton");
    //get current day and ban from selecting previous days
-   var date = new Date();
-   var currentDay = date.getDate();
+   let date = new Date();
+   let currentDay = date.getDate();
    if (td < currentDay) {
       var dinamicTable = document.querySelector(".dinamicTable");
       dinamicTable.innerHTML = "";
@@ -33,10 +33,10 @@ document.querySelector(".green").addEventListener("click", function (event) {
    }
 
    ///ADD RESERVATION
-   nameButton.onclick = function () {
-      var radioId;
-      var firstName = document.querySelector(".firstName").value;
-      var radios = document.querySelectorAll("input");
+   nameButton.onclick = () => {
+      let radioId;
+      let firstName = document.querySelector(".firstName").value;
+      let radios = document.querySelectorAll("input");
       for (var i = 0; i < radios.length; i++) {
          if (radios[i].checked) {
             radio = radios[i];
@@ -54,14 +54,14 @@ document.querySelector(".green").addEventListener("click", function (event) {
 
       //removeRow(td, radioId);
       collectHeaders(td);
+	  alert("Rezervacija atlikta sėkmingai");
    }
-   //collectHeaders(td);
 });
 
 
 //CREATE TABLE OF APPOINTMENTS
-function collectHeaders(td) {
-   var col = [];
+ collectHeaders = td => {
+   let col = [];
    for (var i = 0; i < reservations[td].length; i++) {
       //loop through all keys
       for (var key in reservations[td][i]) {
@@ -74,8 +74,8 @@ function collectHeaders(td) {
    }
 }
 
-function createHeaders(td, col) {
-   var table = document.createElement("table");
+ createHeaders = (td, col) => {
+   let table = document.createElement("table");
 
    //create first row in table, insert it for headers section
    var tr = table.insertRow(-1);
@@ -83,7 +83,7 @@ function createHeaders(td, col) {
    // kiekvienam pavadinimui sukurk langeli lenteleje
    for (var i = 0; i < col.length; i++) {
       //create table header
-      var th = document.createElement("th");
+      let th = document.createElement("th");
       // give next value to table header from col array
       th.innerHTML = col[i];
       //append table header to table row
@@ -92,13 +92,13 @@ function createHeaders(td, col) {
    //addData(td, col, table)
    addData(td, col, table)
 }
-function addData(td, col, table) {
-   var idCounter = 0;
+ addData = (td, col, table) => {
+   let idCounter = 0;
 
    for (var i = 0; i < reservations[td].length; i++) {
       tr = table.insertRow(-1);
 
-      var input = document.createElement("input");
+      let input = document.createElement("input");
       input.setAttribute("type", "radio");
       input.setAttribute("id", idCounter);
       input.setAttribute("name", "firstname");
@@ -110,7 +110,7 @@ function addData(td, col, table) {
 
          // if "name" is "none", dont show it on table
          if (reservations[td][i][col[1]] == "none") {
-            var tabCell = tr.insertCell(-1);
+            let tabCell = tr.insertCell(-1);
             tr.appendChild(input);
             tabCell.innerHTML = reservations[td][i][col[j]];
          }
@@ -120,14 +120,14 @@ function addData(td, col, table) {
 
    }
    // add table to HTML div
-   var dinamicTable = document.querySelector(".dinamicTable");
+   let dinamicTable = document.querySelector(".dinamicTable");
    dinamicTable.innerHTML = "";
    dinamicTable.appendChild(table);
 }
 
 
 // make innerText of day red when no available reservations left
-function makeRed(clickedDay) {
+ makeRed = clickedDay => {
    if (reservations[clickedDay.innerHTML].every((item) => item.Name != "none")) {
       clickedDay.classList.add("redText");
    }
@@ -135,8 +135,8 @@ function makeRed(clickedDay) {
 
 
 // mark available reservations white
-function markWhite() {
-   var allRows = Array.from(document.querySelector(".dinamicTable2").querySelectorAll("tr"));
+ markWhite = () => {
+   let allRows = Array.from(document.querySelector(".dinamicTable2").querySelectorAll("tr"));
    for (var i = 1; i < allRows.length; i++) {
       if ((allRows[i].innerHTML.search("none") > 0)) {
          { allRows[i].classList.add("white") }
@@ -147,9 +147,9 @@ function markWhite() {
 
 //// second table
 document.querySelectorAll(".green")[1].addEventListener("click", function (event) {
-   var td = event.target.innerHTML;
-   var nameButton = document.querySelectorAll(".nameButton")[1];
-   var cancelButton = document.querySelector(".cancelButton");
+   let td = event.target.innerHTML;
+   let nameButton = document.querySelectorAll(".nameButton")[1];
+   let cancelButton = document.querySelector(".cancelButton");
    //var searchButton = document.querySelector(".searchButton");
 
    //if clicked on td(day), build a table
@@ -160,27 +160,27 @@ document.querySelectorAll(".green")[1].addEventListener("click", function (event
    markWhite();
 
    // show active element (day) of calendar   
-   var tds = document.querySelectorAll(".green")[1].querySelectorAll("td");
+   let tds = document.querySelectorAll(".green")[1].querySelectorAll("td");
    tds = Array.from(tds);
    console.log(tds);
    for (var i = 0; i < tds.length; i++) {
-      tds[i].addEventListener("click", function () {
-         var current = document.getElementsByClassName("active");
+      tds[i].addEventListener("click", () => {
+         let current = document.getElementsByClassName("active");
          current[0].className = current[0].className.replace(" active", "");
          this.className += " active";
       })
    };
 
 
-   nameButton.onclick = function () {
-      var radioId;
+   nameButton.onclick = () => {
+      let radioId;
       //get input(name)
-      var firstName = document.querySelectorAll(".firstName")[1].value;
+      let firstName = document.querySelectorAll(".firstName")[1].value;
       //get selected radio id(reservation time)
-      var radios = document.querySelectorAll("input");
+      let radios = document.querySelectorAll("input");
       for (var i = 0; i < radios.length; i++) {
          if (radios[i].checked) {
-            var radio = radios[i];
+            let radio = radios[i];
             radioId = radios[i].id;
          };
          if (firstName == "" || firstName == " ") {
@@ -191,16 +191,17 @@ document.querySelectorAll(".green")[1].addEventListener("click", function (event
       //td - day, radioID (checked radio id) - dienos objekto indeksas(valanda)
       reservations[td][radioId].Name = firstName;
 
-      var clickedDay = event.target;
+      let clickedDay = event.target;
       makeRed(clickedDay);
       document.querySelectorAll(".firstName")[1].value = " ";
       //refresh data on screen
       collectHeaders2(td);
       markWhite();
+	  alert("Rezervacija atlikta sėkmingai");
    }
 
    cancelButton.onclick = function () {
-      var radios = document.querySelectorAll("input");
+      let radios = document.querySelectorAll("input");
       for (var i = 0; i < radios.length; i++) {
          if (radios[i].checked) {
             var radio = radios[i];
@@ -222,8 +223,8 @@ document.querySelectorAll(".green")[1].addEventListener("click", function (event
 
 
 //build a table
-function collectHeaders2(td) {
-   var col = [];
+ collectHeaders2 = td => {
+   let col = [];
    for (var i = 0; i < reservations[td].length; i++) {
       for (var key in reservations[td][i]) {
          if (col.indexOf(key) === -1) {
@@ -234,41 +235,41 @@ function collectHeaders2(td) {
    }
 }
 
-function createHeaders2(td, col) {
-   var table = document.createElement("table");
-   var tr = table.insertRow(-1);
+ createHeaders2 = (td, col) => {
+   let table = document.createElement("table");
+   let tr = table.insertRow(-1);
    for (var i = 0; i < col.length; i++) {
-      var th = document.createElement("th");
+      let th = document.createElement("th");
       th.innerHTML = col[i];
       tr.appendChild(th);
    }
    addData2(td, col, table)
 }
 
-function addData2(td, col, table) {
-   var idCounter = 0;
+ addData2 = (td, col, table) => {
+   let idCounter = 0;
    for (var i = 0; i < reservations[td].length; i++) {
       tr = table.insertRow(-1);
-      var input = document.createElement("input");
+      let input = document.createElement("input");
       input.setAttribute("type", "radio");
       input.setAttribute("id", idCounter);
       input.setAttribute("name", "firstname");
       tr.setAttribute('id', idCounter);
       idCounter += 1;
       for (var j = 0; j < col.length; j++) {
-         var tabCell = tr.insertCell(-1);
+         let tabCell = tr.insertCell(-1);
          tabCell.innerHTML = reservations[td][i][col[j]];
          tr.appendChild(input);
       }
    }
-   var dinamicTable2 = document.querySelector(".dinamicTable2");
+   let dinamicTable2 = document.querySelector(".dinamicTable2");
    dinamicTable2.innerHTML = "";
    dinamicTable2.appendChild(table);
 }
 
 ///first page (tabs)
 
-function showPage(event, page) {
+showPage = (event, page) => {
    var i, tabcontent, tablinks;
 
    tabcontent = document.getElementsByClassName("tabcontent");
