@@ -53,9 +53,9 @@ document.querySelector(".green").addEventListener("click", function (event) {
       document.querySelector(".firstName").value = " ";
 
       //removeRow(td, radioId);
-      //collectHeaders(td);
+      collectHeaders(td);
    }
-   collectHeaders(td);
+   //collectHeaders(td);
 });
 
 
@@ -289,174 +289,7 @@ function showPage(event, page) {
 
 
 var reservations = {
-   19: [
-      {
-         "Time": "10:00",
-         "Name": "none"
-      },
-      {
-         "Time": "10:15",
-         "Name": "none"
-      },
-      {
-         "Time": "10:30",
-         "Name": "Ruta"
-      },
-      {
-         "Time": "10:45",
-         "Name": "none",
-      },
-      {
-         "Time": "11:00",
-         "Name": "none"
-      },
-      {
-         "Time": "11:15",
-         "Name": "none"
-      },
-      {
-         "Time": "11:30",
-         "Name": "none"
-      },
-      {
-         "Time": "11:45",
-         "Name": "none"
-      },
-      {
-         "Time": "12:00",
-         "Name": "none"
-      },
-      {
-         "Time": "12:15",
-         "Name": "none"
-      },
-      {
-         "Time": "12:30",
-         "Name": "none"
-      },
-      {
-         "Time": "12:45",
-         "Name": "none"
-      },
-      {
-         "Time": "13:00",
-         "Name": "none"
-      },
-      {
-         "Time": "13:15",
-         "Name": "none"
-      },
-      {
-         "Time": "13:30",
-         "Name": "none"
-      },
-      {
-         "Time": "13:45",
-         "Name": "none"
-      },
-      {
-         "Time": "14:00",
-         "Name": "none"
-      },
-      {
-         "Time": "14:15",
-         "Name": "none"
-      },
-      {
-         "Time": "14:30",
-         "Name": "none"
-      },
-      {
-         "Time": "14:45",
-         "Name": "none"
-      },
-      {
-         "Time": "15:00",
-         "Name": "Liudvikas"
-
-      },
-      {
-         "Time": "15:15",
-         "Name": "none"
-      },
-      {
-         "Time": "15:30",
-         "Name": "none"
-      },
-      {
-         "Time": "15:45",
-         "Name": "none"
-      },
-      {
-         "Time": "16:00",
-         "Name": "none"
-      },
-      {
-         "Time": "16:15",
-         "Name": "Marcelijus"
-      },
-      {
-         "Time": "16:30",
-         "Name": "none"
-
-      },
-      {
-         "Time": "16:45",
-         "Name": "none"
-      },
-      {
-         "Time": "17:00",
-         "Name": "none"
-      },
-      {
-         "Time": "17:15",
-         "Name": "Aldona"
-      },
-      {
-         "Time": "17:30",
-         "Name": "none"
-
-      },
-      {
-         "Time": "17:45",
-         "Name": "Bronė"
-      },
-      {
-         "Time": "18:00",
-         "Name": "none"
-      },
-      {
-         "Time": "18:15",
-         "Name": "Mikhail"
-      },
-      {
-         "Time": "18:30",
-         "Name": "none"
-      },
-      {
-         "Time": "18:45",
-         "Name": "Kotryna"
-      },
-      {
-         "Time": "19:00",
-         "Name": "Hedvika",
-      },
-      {
-         "Time": "19:15",
-         "Name": "Ugnė"
-      },
-      {
-         "Time": "19:30",
-         "Name": "none"
-      },
-      {
-         "Time": "19:45",
-         "Name": "none"
-      }
-
-   ],
-
-
+   
    20: [
       {
          "Time": "10:00",
@@ -1184,24 +1017,169 @@ var reservations = {
    27: [
       {
          "Time": "10:00",
-         "Name": "Gediminas"
+         "Name": "none"
       },
       {
          "Time": "10:15",
-         "Name": "Dovydas"
+         "Name": "none"
       },
       {
          "Time": "10:30",
-         "Name": "Dalia"
+         "Name": "Ruta"
       },
       {
          "Time": "10:45",
-         "Name": "Jurga",
+         "Name": "none",
       },
       {
          "Time": "11:00",
-         "Name": "Kazys"
-      }],
+         "Name": "none"
+      },
+      {
+         "Time": "11:15",
+         "Name": "none"
+      },
+      {
+         "Time": "11:30",
+         "Name": "none"
+      },
+      {
+         "Time": "11:45",
+         "Name": "none"
+      },
+      {
+         "Time": "12:00",
+         "Name": "none"
+      },
+      {
+         "Time": "12:15",
+         "Name": "none"
+      },
+      {
+         "Time": "12:30",
+         "Name": "none"
+      },
+      {
+         "Time": "12:45",
+         "Name": "none"
+      },
+      {
+         "Time": "13:00",
+         "Name": "none"
+      },
+      {
+         "Time": "13:15",
+         "Name": "none"
+      },
+      {
+         "Time": "13:30",
+         "Name": "none"
+      },
+      {
+         "Time": "13:45",
+         "Name": "none"
+      },
+      {
+         "Time": "14:00",
+         "Name": "none"
+      },
+      {
+         "Time": "14:15",
+         "Name": "none"
+      },
+      {
+         "Time": "14:30",
+         "Name": "none"
+      },
+      {
+         "Time": "14:45",
+         "Name": "none"
+      },
+      {
+         "Time": "15:00",
+         "Name": "Liudvikas"
+
+      },
+      {
+         "Time": "15:15",
+         "Name": "none"
+      },
+      {
+         "Time": "15:30",
+         "Name": "none"
+      },
+      {
+         "Time": "15:45",
+         "Name": "none"
+      },
+      {
+         "Time": "16:00",
+         "Name": "none"
+      },
+      {
+         "Time": "16:15",
+         "Name": "Marcelijus"
+      },
+      {
+         "Time": "16:30",
+         "Name": "none"
+
+      },
+      {
+         "Time": "16:45",
+         "Name": "none"
+      },
+      {
+         "Time": "17:00",
+         "Name": "none"
+      },
+      {
+         "Time": "17:15",
+         "Name": "Aldona"
+      },
+      {
+         "Time": "17:30",
+         "Name": "none"
+
+      },
+      {
+         "Time": "17:45",
+         "Name": "Bronė"
+      },
+      {
+         "Time": "18:00",
+         "Name": "none"
+      },
+      {
+         "Time": "18:15",
+         "Name": "Mikhail"
+      },
+      {
+         "Time": "18:30",
+         "Name": "none"
+      },
+      {
+         "Time": "18:45",
+         "Name": "Kotryna"
+      },
+      {
+         "Time": "19:00",
+         "Name": "Hedvika",
+      },
+      {
+         "Time": "19:15",
+         "Name": "Ugnė"
+      },
+      {
+         "Time": "19:30",
+         "Name": "none"
+      },
+      {
+         "Time": "19:45",
+         "Name": "none"
+      }
+
+   ],
    28: [
       {
          "Time": "10:00",
