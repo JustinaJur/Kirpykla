@@ -1,7 +1,7 @@
 var reservations;
 
 //first table
-document.querySelector(".green").addEventListener("click", function (event) {
+document.querySelector(".green").addEventListener("click", function (event){
    let clickedDay = event.target;
    let td = event.target.innerHTML;
 
@@ -200,7 +200,7 @@ document.querySelectorAll(".green")[1].addEventListener("click", function (event
 	  alert("Rezervacija atlikta sėkmingai");
    }
 
-   cancelButton.onclick = function () {
+   cancelButton.onclick = () => {
       let radios = document.querySelectorAll("input");
       for (var i = 0; i < radios.length; i++) {
          if (radios[i].checked) {
