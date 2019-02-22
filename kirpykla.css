@@ -148,6 +148,11 @@
    background-color: salmon;
    }
    
+   .active{
+	   background-color: red;
+   }
+   
+   
    @media screen and (max-width: 960px) {
       .tab{
       grid-template-columns: 1fr;
