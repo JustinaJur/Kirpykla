@@ -141,19 +141,17 @@ document.querySelector(".green").addEventListener("click", function (event){
 }
 
 
-searchNames = () => {
-	
+searchNames = () => {	
     let firstName = document.querySelectorAll(".firstName")[1].value.toLowerCase();
     let allRows = Array.from(document.querySelector(".dinamicTable2").querySelectorAll("tr"));
 
 	if(firstName !== "") {
 		//clear class "yellow"
-		allRows.map((row) => row.classList.remove("yellow"));
+		allRows.map(row => row.classList.remove("yellow"));
 		
-		 var ne = allRows
-		//.filter(row => row.innerHTML.toLowerCase().search(firstName.toLowerCase()) > -1);	
-		.filter(row => row.innerHTML.toLowerCase().indexOf(firstName) >= 0);
-		var nes = ne.map(row => row.classList.add("yellow"));
+		  allRows.filter(row => row.innerHTML.toLowerCase().indexOf(firstName) >= 0)
+		//.filter(row => row.innerHTML.toLowerCase().search(firstName.toLowerCase()) > -1);		
+		 .map(row => row.classList.add("yellow"));
 	}
 
     document.querySelectorAll(".firstName")[1].value = "";
