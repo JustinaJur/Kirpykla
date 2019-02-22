@@ -111,8 +111,8 @@
    .visible{
    display: block;
    }
-   .yellow{
-   color: yellow;
+   .yellow{  
+   background-color: yellow;
    }
    .white{
 	color: white;

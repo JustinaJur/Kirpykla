@@ -97,7 +97,6 @@ document.querySelector(".green").addEventListener("click", function (event){
 ///cia reik pasirinkti kad kurtu kita lentele for dinamictable2
  createHeaders = (td, col) => {
    let table = document.createElement("table");
-
    //create first row in table, insert it for headers section
    var tr = table.insertRow(-1);
 
@@ -110,57 +109,43 @@ document.querySelector(".green").addEventListener("click", function (event){
       //append table header to table row
       tr.appendChild(th);
    }
-   //addData(td, col, table)
    addData(td, col, table)
 }
 
 
  addData = (td, col, table) => {
-   let idCounter = 0;
-
+   let idCounter = 0; 
 //for every object(reservation time) of particular day
    for (var i = 0; i < reservations[td].length; i++) {
-
-    if(reservations[td][i].Name == "none"){
-
-      //create a row (i apacia)
-      var tr = table.insertRow(-1); }
-
+      //create a row only if "name" is "none"
+    if(reservations[td][i].Name === "none"){
+      var tr = table.insertRow(-1); 
+}
       let input = document.createElement("input");
       input.setAttribute("type", "radio");
       input.setAttribute("id", idCounter);
       input.setAttribute("name", "firstname");
-      // tr.setAttribute('id', idCounter);
+      //tr.setAttribute('id', idCounter);
       idCounter += 1;
-
       // for every tr and header create a cell (i sona, desine )
       for (var j = 0; j < col.length; j++) {
-
          // if "name" is "none", show it on table
-         if (reservations[td][i][col[1]] == "none") {
+        if (reservations[td][i][col[1]] === "none") {
              //append a cell to tr
             let tabCell = tr.insertCell(-1);
              //insert data from reservations
             tabCell.innerHTML = reservations[td][i][col[j]];
              // append a radio to tr
-            tr.appendChild(input);
-            
-         }
+            tr.appendChild(input);          
+        }
       }
-
-      var tr = document.querySelector(".dinamicTable").querySelectorAll("tr");
-
-   
 }
    // add table to HTML div
    let dinamicTable = document.querySelector(".dinamicTable");
    dinamicTable.innerHTML = "";
+   //insert data to empty table
    dinamicTable.appendChild(table);
 }
-
-
-
-
 
 
 //// second table
@@ -168,19 +153,18 @@ document.querySelectorAll(".green")[1].addEventListener("click", function (event
    let td = event.target.innerHTML;
    let nameButton = document.querySelectorAll(".nameButton")[1];
    let cancelButton = document.querySelector(".cancelButton");
+   let searchButton = document.querySelector(".searchButton");
    //var searchButton = document.querySelector(".searchButton");
 
    //if clicked on td(day), build a table
    if (event.target.tagName.toLowerCase() === "td") {
       collectHeaders2(td);
    }
-
    markWhite();
 
    // show active element (day) of calendar   
    let tds = document.querySelectorAll(".green")[1].querySelectorAll("td");
    tds = Array.from(tds);
-   console.log(tds);
    for (var i = 0; i < tds.length; i++) {
       tds[i].addEventListener("click", () => {
          let current = document.getElementsByClassName("active");
@@ -236,8 +220,30 @@ document.querySelectorAll(".green")[1].addEventListener("click", function (event
       alert("Rezervacijos atšaukimas atliktas sėkmingai");
    };
 
-});
+   
+   searchButton.onclick = (e) => {
+   console.log(e);
+   console.log(this);
 
+    let firstName = document.querySelectorAll(".firstName")[1].value;
+    let allRows = Array.from(document.querySelector(".dinamicTable2").querySelectorAll("tr"));
+
+	//clear class "yellow"
+	allRows.map((row) => row.classList.remove("yellow"));
+
+   for (var i = 1; i < allRows.length; i++) {
+        //allRows[i].classList.remove("yellow");
+        console.log(allRows[i].innerText);
+
+      if ((allRows[i].innerHTML.toLowerCase().search(firstName.toLowerCase()) > 0)) {
+         {allRows[i].classList.add("yellow") }
+      }
+       document.querySelectorAll(".firstName")[1].value = "";
+   }
+   
+}
+
+});
 
 
 //build a table
@@ -284,28 +290,6 @@ document.querySelectorAll(".green")[1].addEventListener("click", function (event
    dinamicTable2.innerHTML = "";
    dinamicTable2.appendChild(table);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ///first page (tabs)
 
