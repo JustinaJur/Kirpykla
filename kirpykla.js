@@ -1,5 +1,24 @@
 var reservations;
 
+// make innerText of day red when no available reservations left
+ makeRed = clickedDay => {
+   if (reservations[clickedDay.innerHTML].every((item) => item.Name != "none")) {
+      clickedDay.classList.add("redText");
+   }
+}
+
+// mark available reservations white
+ markWhite = () => {
+   let allRows = Array.from(document.querySelector(".dinamicTable2").querySelectorAll("tr"));
+   for (var i = 1; i < allRows.length; i++) {
+      if ((allRows[i].innerHTML.search("none") > 0)) {
+         { allRows[i].classList.add("white") }
+      }
+   }
+}
+
+
+
 //first table
 document.querySelector(".green").addEventListener("click", function (event){
    let clickedDay = event.target;
@@ -15,7 +34,6 @@ document.querySelector(".green").addEventListener("click", function (event){
          this.className += " active";
       })
    };
-
 
    let nameButton = document.querySelector(".nameButton");
    //get current day and ban from selecting previous days
@@ -59,6 +77,7 @@ document.querySelector(".green").addEventListener("click", function (event){
 });
 
 
+
 //CREATE TABLE OF APPOINTMENTS
  collectHeaders = td => {
    let col = [];
@@ -74,6 +93,8 @@ document.querySelector(".green").addEventListener("click", function (event){
    }
 }
 
+
+///cia reik pasirinkti kad kurtu kita lentele for dinamictable2
  createHeaders = (td, col) => {
    let table = document.createElement("table");
 
@@ -92,33 +113,45 @@ document.querySelector(".green").addEventListener("click", function (event){
    //addData(td, col, table)
    addData(td, col, table)
 }
+
+
  addData = (td, col, table) => {
    let idCounter = 0;
 
+//for every object(reservation time) of particular day
    for (var i = 0; i < reservations[td].length; i++) {
-      tr = table.insertRow(-1);
+
+    if(reservations[td][i].Name == "none"){
+
+      //create a row (i apacia)
+      var tr = table.insertRow(-1); }
 
       let input = document.createElement("input");
       input.setAttribute("type", "radio");
       input.setAttribute("id", idCounter);
       input.setAttribute("name", "firstname");
-
-      tr.setAttribute('id', idCounter);
+      // tr.setAttribute('id', idCounter);
       idCounter += 1;
-      // cells add horizontally
+
+      // for every tr and header create a cell (i sona, desine )
       for (var j = 0; j < col.length; j++) {
 
-         // if "name" is "none", dont show it on table
+         // if "name" is "none", show it on table
          if (reservations[td][i][col[1]] == "none") {
+             //append a cell to tr
             let tabCell = tr.insertCell(-1);
-            tr.appendChild(input);
+             //insert data from reservations
             tabCell.innerHTML = reservations[td][i][col[j]];
+             // append a radio to tr
+            tr.appendChild(input);
+            
          }
       }
 
       var tr = document.querySelector(".dinamicTable").querySelectorAll("tr");
 
-   }
+   
+}
    // add table to HTML div
    let dinamicTable = document.querySelector(".dinamicTable");
    dinamicTable.innerHTML = "";
@@ -126,23 +159,8 @@ document.querySelector(".green").addEventListener("click", function (event){
 }
 
 
-// make innerText of day red when no available reservations left
- makeRed = clickedDay => {
-   if (reservations[clickedDay.innerHTML].every((item) => item.Name != "none")) {
-      clickedDay.classList.add("redText");
-   }
-}
 
 
-// mark available reservations white
- markWhite = () => {
-   let allRows = Array.from(document.querySelector(".dinamicTable2").querySelectorAll("tr"));
-   for (var i = 1; i < allRows.length; i++) {
-      if ((allRows[i].innerHTML.search("none") > 0)) {
-         { allRows[i].classList.add("white") }
-      }
-   }
-}
 
 
 //// second table
@@ -266,6 +284,28 @@ document.querySelectorAll(".green")[1].addEventListener("click", function (event
    dinamicTable2.innerHTML = "";
    dinamicTable2.appendChild(table);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ///first page (tabs)
 
