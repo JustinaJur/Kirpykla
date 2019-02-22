@@ -132,7 +132,6 @@ document.querySelector(".green").addEventListener("click", function (event){
             tr.appendChild(input);          
         }
       }
-      //tr = document.querySelector(".dinamicTable").querySelectorAll("tr");
 }
    // add table to HTML div
    let dinamicTable = document.querySelector(".dinamicTable");
@@ -142,17 +141,9 @@ document.querySelector(".green").addEventListener("click", function (event){
 }
 
 
-
-
-//NEVEIKIA IS PIRMO KARTO.WARUM WARUM???
 searchNames = () => {
-	 // collectHeaders2(td)
-   //console.log(e);
-   //console.log(this);
-    let firstName = document.querySelectorAll(".firstName")[1].value.toLowerCase();
-	console.log(Array.from(document.querySelector(".dinamicTable2").querySelectorAll("tr")));
-	console.log(firstName);
 	
+    let firstName = document.querySelectorAll(".firstName")[1].value.toLowerCase();
     let allRows = Array.from(document.querySelector(".dinamicTable2").querySelectorAll("tr"));
 
 	if(firstName !== "") {
@@ -165,12 +156,7 @@ searchNames = () => {
 		var nes = ne.map(row => row.classList.add("yellow"));
 	}
 
-	console.log(ne);
-	console.log(nes);
-	console.log(allRows);
-  
     document.querySelectorAll(".firstName")[1].value = "";
-	
 }
 
 
@@ -221,28 +207,9 @@ document.querySelectorAll(".green")[1].addEventListener("click", function (event
       collectHeaders2(td);
       markWhite();
 	  alert("Rezervacija atlikta sėkmingai");
-	  
-	  
-	  // let allRows = Array.from(document.querySelector(".dinamicTable2").querySelectorAll("tr"));
-	   //console.log(allRows);
+
    }
 
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
    
    cancelButton.onclick = () => {
       let radios = document.querySelectorAll("input");
