@@ -174,9 +174,9 @@ document.querySelectorAll(".green")[1].addEventListener("click", function (event
    if (event.target.tagName.toLowerCase() === "td") {
       collectHeaders2(td);
 	  //add active class
-	  let current = document.getElementsByClassName("active");
-          current[0].className = current[0].className.replace(" active", "");
-          clickedDay.className += " active"; 
+	  // let current = document.getElementsByClassName("active");
+          // current[0].className = current[0].className.replace(" active", "");
+          // clickedDay.className += " active"; 
    }
    markWhite();
 
