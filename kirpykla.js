@@ -146,7 +146,7 @@ document.querySelectorAll(".green")[1].addEventListener("click", function (event
    let searchButton = document.querySelector(".searchButton");
    
     if(reservations[clickedDay.innerText] === undefined){ 
-    document.querySelectorAll(".dinamicTable2")[1].innerHTML = "";
+    document.querySelector(".dinamicTable2").innerHTML = "";
     return }
   
    //if clicked on td(day), build a table
