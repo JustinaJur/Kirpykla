@@ -1,10 +1,10 @@
 var reservations;
 
-// make innerText of day red when no available reservations left
+// make innerText of day 'red' when no available reservations left
 makeRed = clickedDay => {
-   if (reservations[clickedDay.innerHTML].every((item) => item.Name != "none")) {
-      clickedDay.classList.add("redText");
-   }
+	  allDays = Array.from(document.querySelectorAll("td"));
+      allDays.filter(day => day.innerText == clickedDay.innerText)	  
+	         .map(day => day.classList.add("redText"));			
 }
 
 // mark available reservations white
@@ -23,7 +23,7 @@ clearOrange = parentName => {
         allDays.map(day => day.classList.remove("orange"));	
 }}
 
-makeReservation = (clickedDay, parentName) => {
+makeReservation = (clickedDay, parentName) => {	
    let firstName;
    let radioId;
    let radios = Array.from(document.querySelectorAll("input"));
@@ -33,7 +33,7 @@ makeReservation = (clickedDay, parentName) => {
    } else {
       firstName = document.querySelectorAll(".firstName")[1].value;
    };  
-   if (firstName == "") {
+   if (firstName.length <= 0) {
       alert("registruojantis būtina pasirinkti laiką ir įvesti kontaktinius duomenis");
       return
    }
@@ -61,18 +61,21 @@ cancelReservation = (clickedDay, parentName) => {
 
 
 searchNames = () => {
-	console.log("labas");
     let firstName = document.querySelectorAll(".firstName")[1].value.toLowerCase();
     let allRows = Array.from(document.querySelector(".dinamicTable2").querySelectorAll("tr"));
-	if(firstName !== "") {
+	if(firstName.length > 0) {
+		console.log(firstName);
 		//clear class "yellow"
 		allRows.map((row) => row.classList.remove("yellow"));
 	  
 		//.filter(row => row.innerHTML.toLowerCase().search(firstName.toLowerCase()) > -1);	
 		allRows.filter(row => row.innerHTML.toLowerCase().indexOf(firstName) >= 0)
 		       .map(row => row.classList.add("yellow"));
+			   
+			
 	}
-    document.querySelectorAll(".firstName")[1].value = "";
+	document.querySelectorAll(".firstName")[1].value = "";
+   
 }
  
 
