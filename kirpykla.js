@@ -14,6 +14,15 @@ markWhite = () => {
       .map(row => row.classList.add("white"));
 }
 
+clearOrange = parentName => {
+	if(parentName.parentElement.className == "sectionClient"){
+	 let allDays = Array.from(document.querySelector(".auto-jsCalendar").querySelectorAll("td"));
+     allDays.map(day => day.classList.remove("orange"));
+	} else {
+		allDays = Array.from(document.querySelectorAll(".auto-jsCalendar")[1].querySelectorAll("td"));
+        allDays.map(day => day.classList.remove("orange"));	
+}}
+
 makeReservation = (clickedDay, parentName) => {
    let firstName;
    let radioId;
@@ -52,6 +61,7 @@ cancelReservation = (clickedDay, parentName) => {
 
 
 searchNames = () => {
+	console.log("labas");
     let firstName = document.querySelectorAll(".firstName")[1].value.toLowerCase();
     let allRows = Array.from(document.querySelector(".dinamicTable2").querySelectorAll("tr"));
 	if(firstName !== "") {
@@ -59,8 +69,8 @@ searchNames = () => {
 		allRows.map((row) => row.classList.remove("yellow"));
 	  
 		//.filter(row => row.innerHTML.toLowerCase().search(firstName.toLowerCase()) > -1);	
-		var filteredRows = allRows.filter(row => row.innerHTML.toLowerCase().indexOf(firstName) >= 0);
-		var mapedRows = filteredRows.map(row => row.classList.add("yellow"));
+		allRows.filter(row => row.innerHTML.toLowerCase().indexOf(firstName) >= 0)
+		       .map(row => row.classList.add("yellow"));
 	}
     document.querySelectorAll(".firstName")[1].value = "";
 }
@@ -72,6 +82,7 @@ document.querySelector(".green").addEventListener("click", function (event){
    let parentName = this;
    let clickedDay = event.target;
    let nameButton = document.querySelector(".nameButton");
+   clearOrange(parentName);
 
     //if clicked on Day without data in reservations, return
     if(reservations[clickedDay.innerText] === undefined){ 
@@ -81,14 +92,7 @@ document.querySelector(".green").addEventListener("click", function (event){
    //if clicked on DAY, start building  a table 
    if (event.target.tagName.toLowerCase() === 'td') {
       collectHeaders(clickedDay, parentName);
-	  
-	  ///****************************************************************************************************Ū
-	  let current = document.getElementsByClassName("active");
-	  console.log(current);
-	  console.log(current[0]);
-          current[0].className = current[0].className.replace(" active", "");
-          clickedDay.className += " active"; 
-     ///************************************************************************************************************
+	  clickedDay.classList.add("orange");
    }
    nameButton.onclick = () => {
       makeReservation(clickedDay, parentName);	  
@@ -127,12 +131,13 @@ document.querySelector(".green").addEventListener("click", function (event){
    
  // col.map(item => { return 
       // let th = document.createElement("th");
-      // // give next value to table header from col array
+      //give next value to table header from col array
       // th.innerHTML = item;
 	  // console.log(item);
-      // //append table header to table row
+      //append table header to table row
       // tr.appendChild(th);
   // })
+  
    addData(clickedDay, col, table, parentName)
 }
 
@@ -144,6 +149,7 @@ document.querySelectorAll(".green")[1].addEventListener("click", function (event
    let nameButton = document.querySelectorAll(".nameButton")[1];
    let cancelButton = document.querySelector(".cancelButton");
    let searchButton = document.querySelector(".searchButton");
+   clearOrange(parentName);
    
     if(reservations[clickedDay.innerText] === undefined){ 
     document.querySelector(".dinamicTable2").innerHTML = "";
@@ -152,6 +158,7 @@ document.querySelectorAll(".green")[1].addEventListener("click", function (event
    //if clicked on td(day), build a table
    if (event.target.tagName.toLowerCase() === "td") {
        collectHeaders(clickedDay, parentName);
+	   clickedDay.classList.add("orange");
    }
    markWhite();
    nameButton.onclick = () => {
