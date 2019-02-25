@@ -174,40 +174,21 @@ input[type="button"] {
      border-top: none;
    }
 
-   
-   
-   @media screen and (max-width: 960px) {
-      .tab{
-      grid-template-columns: 1fr;
+    
+   @media screen and (max-width: 980px) {
+      .tab {
+	   grid-template-columns: 1fr 2fr 1fr;
       }
-      .tab button{
-      max-height: 80px;
+     
       }
-      }
+	  
       
-      @media screen and (max-width: 600px) {
-      .tabcontent h1{
-      font-size: 1.5rem;
+     @media screen and (max-width: 680px)  {
+      .tab {
+		grid-template-columns: 1fr;
       }
-      .dinamicTable, .dinamicTable2{
-      width: 350px;
-      }
-      .register{
-      display: grid;
-      place-items: center;
-      grid-gap: 15px;
-      }
-      .container {
-      place-items: center;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      }
-      }
-      
-      @media screen and (max-width: 450px) {
-     .dinamicTable, .dinamicTable2{
-      width: 250px;
-   }
-     .tabcontent h1, h3{
-     font-size: 0.9rem;
-   }
-   }
+	  
+	 }
+     
+	 
+   
