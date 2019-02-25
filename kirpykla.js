@@ -1,11 +1,18 @@
 var reservations;
 
-// make innerText of day 'red' when no available reservations left
+// mark days that are not available for a reservation
 makeRed = clickedDay => {
-	  allDays = Array.from(document.querySelectorAll("td"));
+	 allDays = Array.from(document.querySelectorAll("td"));
+     //check if there is no available reservations left in clickedDay
+	if (reservations[clickedDay.innerHTML].every((item) => item.Name !== "none")) {
+	   //filter days, find all days equal to clickedDay's innertext
       allDays.filter(day => day.innerText == clickedDay.innerText)	  
-	         .map(day => day.classList.add("redText"));			
-}
+	         .map(day => day.classList.add("redText"));	
+	// if not all 'times' of particular day are reserved, remove redText class		 
+	} else {
+		allDays.filter(day => day.innerText == clickedDay.innerText)	  
+	         .map(day => day.classList.remove("redText"));		 
+}}
 
 // mark available reservations white
 markWhite = () => {
@@ -14,6 +21,7 @@ markWhite = () => {
       .map(row => row.classList.add("white"));
 }
 
+//mark active day with orange color
 clearOrange = parentName => {
 	if(parentName.parentElement.className == "sectionClient"){
 	 let allDays = Array.from(document.querySelector(".auto-jsCalendar").querySelectorAll("td"));
@@ -22,6 +30,7 @@ clearOrange = parentName => {
 		allDays = Array.from(document.querySelectorAll(".auto-jsCalendar")[1].querySelectorAll("td"));
         allDays.map(day => day.classList.remove("orange"));	
 }}
+
 
 makeReservation = (clickedDay, parentName) => {	
    let firstName;
@@ -39,7 +48,7 @@ makeReservation = (clickedDay, parentName) => {
    }
    //td - day, radioID (checked radio id) - dienos objekto indeksas(valanda)
    reservations[clickedDay.innerText][checkedRadio].Name = firstName;
-   document.querySelector(".firstName").value = " ";
+   document.querySelector(".firstName").value = " ";  
    document.querySelectorAll(".firstName")[1].value = " ";
    makeRed(clickedDay);
    collectHeaders(clickedDay, parentName);
@@ -56,6 +65,7 @@ cancelReservation = (clickedDay, parentName) => {
    collectHeaders(clickedDay, parentName);
    //update table with colors
    markWhite();
+   makeRed(clickedDay);
    alert("Rezervacijos atšaukimas atliktas sėkmingai");
 }
 
@@ -71,11 +81,9 @@ searchNames = () => {
 		//.filter(row => row.innerHTML.toLowerCase().search(firstName.toLowerCase()) > -1);	
 		allRows.filter(row => row.innerHTML.toLowerCase().indexOf(firstName) >= 0)
 		       .map(row => row.classList.add("yellow"));
-			   
-			
+			   	
 	}
-	document.querySelectorAll(".firstName")[1].value = "";
-   
+	document.querySelectorAll(".firstName")[1].value = ""; 
 }
  
 
@@ -131,19 +139,8 @@ document.querySelector(".green").addEventListener("click", function (event){
       // append table header to table row
       tr.appendChild(th);
    }
-   
- // col.map(item => { return 
-      // let th = document.createElement("th");
-      //give next value to table header from col array
-      // th.innerHTML = item;
-	  // console.log(item);
-      //append table header to table row
-      // tr.appendChild(th);
-  // })
-  
    addData(clickedDay, col, table, parentName)
 }
-
 
 //// second table
 document.querySelectorAll(".green")[1].addEventListener("click", function (event) {
@@ -175,9 +172,11 @@ document.querySelectorAll(".green")[1].addEventListener("click", function (event
 }
 });
 
-
+//create tables
 addData = (clickedDay, col, table, parentName) => {
    let idCounter = 0;
+   
+  //create a table for client side
    if (parentName.parentElement.className == "sectionClient") {
       // for every object(reservation time) of particular day
       for (var i = 0; i < reservations[clickedDay.innerText].length; i++) {
@@ -209,6 +208,7 @@ addData = (clickedDay, col, table, parentName) => {
       dinamicTable.appendChild(table);
    }
 
+   //create a table for hair salon side
    else {
       for (var i = 0; i < reservations[clickedDay.innerText].length; i++) {
          tr = table.insertRow(-1);
@@ -236,23 +236,21 @@ addData = (clickedDay, col, table, parentName) => {
 
 ///first page (tabs)
 showPage = (event, page) => {
-   var i, tabcontent, tablinks;
-   //show no content
-   tabcontent = document.getElementsByClassName("tabcontent");
-   for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-   }
-   tablinks = document.getElementsByClassName("tablinks");
-   for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace("active", "");
-   }
-
-   //display page upon onclick and hide picture
-   document.getElementById(page).style.display = "grid";
-   event.currentTarget.className += " active";
+   var tabContent, tabLinks;
    
-   let pic = document.querySelector(".pic");
-   pic.style.display = "none";
+   //show no content
+    tabContent = Array.from(document.getElementsByClassName("tabContent"));
+    tabContent.map(content => content.style.display = "none")
+   
+    tabLinks = Array.from(document.getElementsByClassName("tabLinks"));
+    tabLinks.map(link => link.className = link.className.replace("active", ""));
+   
+    //display page upon onclick and hide picture
+    document.getElementById(page).style.display = "grid";
+    event.currentTarget.className += " active";
+   
+    let pic = document.querySelector(".pic");
+    pic.style.display = "none";
 }
 
 

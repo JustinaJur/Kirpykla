@@ -14,10 +14,6 @@
 </head>
 <style>
 
-   .container-outer {
-      display: grid;
-
-   }
    .jsCalendar.material-theme.green thead {
       background-color: CadetBlue;
       background-color: DimGrey;
@@ -27,9 +23,6 @@
       background-color: Steelblue;
    }
 
-   .jsCalendar tbody td:hover {
-    background-color: #E5C62C;
-}
 
 </style>
 
@@ -38,14 +31,14 @@
 
 
    <div class="tab">
-      <button class="tablinks" onclick="showPage(event, 'clientPage')">Klientams</button>
-      <img class="pic" src="pink.jpg" alt="pink chairs" height="600px">
-      <button class="tablinks" onclick="showPage(event, 'salonPage')">Darbuotojams</button>
+      <button class="tabLinks" onclick="showPage(event, 'clientPage')">Klientams</button>
+      <img class="pic" src="pink.jpg" alt="pink chairs">
+      <button class="tabLinks" onclick="showPage(event, 'salonPage')">Darbuotojams</button>
    </div>
 
    <div class="container-outer">
 
-      <div id="clientPage" class="tabcontent">
+      <div id="clientPage" class="tabContent">
          <div>
             <h1> SVEIKI ATVYKĘ Į MŪSŲ KIRPYKLĄ</h1>
             <h3 class="header-small"> Čia galite rezervuoti apsilankymo laiką. </h3>
@@ -69,11 +62,11 @@
 
          </div>
       </div>
-      <div id="salonPage" class="tabcontent">
+      <div id="salonPage" class="tabContent">
          <h1> REGISTRACIJOS</h1>
          <div class="container">
             <section class="sectionSalon">
-               <p> Pasirinkite datą </p>
+               <h3> Pasirinkite datą </h3>
                <div class="auto-jsCalendar material-theme green" data-month-format="##/YYYY" data-max="28/02/2019">
                </div>
             </section>
