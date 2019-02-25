@@ -1,10 +1,11 @@
-# Simple appointment registration system created with pure JavaScript
+# Appointment registration system created with pure JavaScript
 
 
 ## General Info
 
-Website - Appointment registration system - where customers can register themselves for appointent online and service 
+Website - Appointment registration system - where customers can register themselves online for an appointent and service 
 provider can edit (insert/delete) customers data.  
+The application renders well on different screen sizes.
 
 ## Technologies
 Project is made with:
