@@ -145,7 +145,6 @@ input[type="button"] {
 	color: white;
    }
    
-   
    #clientPage, #salonPage{
    padding-bottom: 50px;
    }
@@ -193,6 +192,7 @@ input[type="button"] {
 	  }
 	  input[type="text"] {
 		  height: 50px;
+		  font-size: 1.3rem;
 	  }
 	  
 	 }
