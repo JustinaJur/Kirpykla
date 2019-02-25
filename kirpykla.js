@@ -68,25 +68,6 @@ cancelReservation = (clickedDay, parentName) => {
    makeRed(clickedDay);
    alert("Rezervacijos atšaukimas atliktas sėkmingai");
 }
-
-
-searchNames = () => {
-    let firstName = document.querySelectorAll(".firstName")[1].value.toLowerCase();
-    let allRows = Array.from(document.querySelector(".dinamicTable2").querySelectorAll("tr"));
-	if(firstName.length > 0) {
-		console.log(firstName);
-		//clear class "yellow"
-		allRows.map((row) => row.classList.remove("yellow"));
-	  
-		//.filter(row => row.innerHTML.toLowerCase().search(firstName.toLowerCase()) > -1);	
-		allRows.filter(row => row.innerHTML.toLowerCase().indexOf(firstName) >= 0)
-		       .map(row => row.classList.add("yellow"));
-			   	
-	}
-	document.querySelectorAll(".firstName")[1].value = ""; 
-}
- 
-
  
 //first table
 document.querySelector(".green").addEventListener("click", function (event){
@@ -113,8 +94,6 @@ document.querySelector(".green").addEventListener("click", function (event){
 
 
  collectHeaders = (clickedDay, parentName) => {	 
-   //for (var i = 0; i < reservations[clickedDay.innerText].length; i++) {
-   //col = Object.keys(reservations[clickedDay.innerText][i]).filter(item => col.indexOf(item) === -1);}
 	  let col = [];
       for (var i = 0; i < reservations[clickedDay.innerText].length; i++) {
       for (var key in reservations[clickedDay.innerText][i]) {
@@ -167,9 +146,7 @@ document.querySelectorAll(".green")[1].addEventListener("click", function (event
    cancelButton.onclick = () => {
        cancelReservation(clickedDay, parentName);
    };
-   searchButton.onclick = () => {
-	   searchNames();
-}
+
 });
 
 //create tables
@@ -255,6 +232,329 @@ showPage = (event, page) => {
 
 
 var reservations = {
+	1: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "Liepa"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	2: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	3: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	4: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	5: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	6: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	7: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	8: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	9: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	10: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	11: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	12: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	13: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	14: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	15: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	16: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+	17: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+   18: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
+   19: [
+      {
+         "Time": "10:00",
+         "Name": "none"
+      },
+      {
+         "Time": "10:15",
+         "Name": "none"
+      },
+      {
+         "Time": "10:30",
+         "Name": "none"
+      },
+      {
+         "Time": "10:45",
+         "Name": "none",
+      }],
    
    20: [
       {
@@ -1002,162 +1302,6 @@ var reservations = {
          "Name": "none"
       }],
   
-      // {
-         // "Time": "10:30",
-         // "Name": "Napoleonas"
-      // },
-      // {
-         // "Time": "10:45",
-         // "Name": "none",
-      // },
-      // {
-         // "Time": "11:00",
-         // "Name": "none"
-      // },
-	  // ,
-      // {
-         // "Time": "11:15",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "11:30",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "11:45",
-         // "Name": "Egle"
-      // },
-      // {
-         // "Time": "12:00",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "12:15",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "12:30",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "12:45",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "13:00",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "13:15",
-         // "Name": "Jonas"
-      // },
-      // {
-         // "Time": "13:30",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "13:45",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "14:00",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "14:15",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "14:30",
-         // "Name": "Birute"
-      // },
-      // {
-         // "Time": "14:45",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "15:00",
-         // "Name": "none"
-
-      // },
-      // {
-         // "Time": "15:15",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "15:30",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "15:45",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "16:00",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "16:15",
-         // "Name": "Monika"
-      // },
-      // {
-         // "Time": "16:30",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "16:45",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "17:00",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "17:15",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "17:30",
-         // "Name": "none"
-
-      // },
-      // {
-         // "Time": "17:45",
-         // "Name": "Bronė"
-      // },
-      // {
-         // "Time": "18:00",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "18:15",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "18:30",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "18:45",
-         // "Name": "Kotryna"
-      // },
-      // {
-         // "Time": "19:00",
-         // "Name": "none",
-      // },
-      // {
-         // "Time": "19:15",
-         // "Name": "Ugnė"
-      // },
-      // {
-         // "Time": "19:30",
-         // "Name": "none"
-      // },
-      // {
-         // "Time": "19:45",
-         // "Name": "none"
-      // }
-	  // ],
          
    28: [
       {
