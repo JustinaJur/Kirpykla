@@ -175,7 +175,7 @@ input[type="button"] {
    }
 
     
-   @media screen and (max-width: 980px) {
+      @media screen and (max-width: 980px) {
       .tab {
 	   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       }
@@ -187,21 +187,27 @@ input[type="button"] {
 		grid-template-columns: 1fr;
       }
 	  
-	 input[type="button"],  input[type="text"] {
+	 input[type="button"] {
 		  font-size: 1.3rem;
-		  border-radius: 4px;
-		  font-weight: lighter;
-		  
+		  border-radius: 4px; 
+	  }
+	  input[type="text"] {
+		  height: 50px;
 	  }
 	  
 	 }
 	 
 	  @media screen and (max-width: 400px){
-		.jsCalendar tbody tr td {
+		.jsCalendar tbody tr td, .jsCalendar thead tr th {
 			padding: 0;
-			margin: 0;
+			margin: 0 !important;
 		 }
+		 .container {
+			 margin: 0;
+		 }
+		  
 	  }
+
      
 	 
    
