@@ -177,7 +177,7 @@ input[type="button"] {
     
    @media screen and (max-width: 980px) {
       .tab {
-	   grid-template-columns: 1fr 2fr 1fr;
+	   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       }
      
       }
