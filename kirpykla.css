@@ -3,47 +3,46 @@
     }
     
    body {
-   margin: 0;
-   font-family: 'Roboto', sans-serif;
-   background-color: LightSteelBlue;
+	   margin: 0;
+	   font-family: 'Roboto', sans-serif;
+	   background-color: LightSteelBlue;
    }
    
    h1{
-   text-align: center;
-   background-color: BlanchedAlmond;
-   padding: 20px 0px;
-   margin: 0;
-   margin-bottom: 0;
-   font-size: 2rem;
+	   text-align: center;
+	   background-color: BlanchedAlmond;
+	   padding: 20px 0px;
+	   margin: 0;
+	   margin-bottom: 0;
+	   font-size: 2rem;
    }
        
    h3, p{
-   text-align: center;
+		text-align: center;
    }
    .header-small{
-   text-align: center;
-   background-color: BlanchedAlmond;
-   margin: 0;
-   padding-bottom: 20px;
+	   text-align: center;
+	   background-color: BlanchedAlmond;
+	   margin: 0;
+	   padding-bottom: 20px;
    }
    
    form{
-	   display: grid;
 	   display: flex;
 	   flex-direction: column;
-       text-align: center;
+	   text-align: center;
    }
    .nameButton, .cancelButton, .searchButton {
-   color: Snow;
-   background-color: DimGrey;
-   border: 2px solid black;
-   letter-spacing: 1px;
-   height: 100%;
-   font-weight: 600;
+	   color: Snow;
+	   background-color: DimGrey;
+	   border: 2px solid black;
+	   letter-spacing: 1px;
+	   height: 100%;
+	   font-weight: 600;
    }
    
   .cancelButton {
-   background-color: salmon;
+     background-color: salmon;
   }
    
  input{
@@ -53,20 +52,20 @@
    }
   
   input[type="radio"] {
-  height: 20px;
-  width: 20px;
+	 height: 20px;
+	 width: 20px;
 }
    
   input[type="radio"]:checked {  
    height: 25px;
-  width: 25px;
+   width: 25px;
 }
 
- input[type="radio"]:hover {
+  input[type="radio"]:hover {
 	color: #FFFFFF;
 }
 
-input[type="button"] {
+  input[type="button"] {
 	text-transform: uppercase;
 }
 
@@ -80,11 +79,11 @@ input[type="button"] {
 	
    }
    .container{
-   display: grid;
-   place-items:center;
-   background-color: LightSteelBlue;
-   margin: 20px;
-   padding: 20px;
+	   display: grid;
+	   place-items:center;
+	   background-color: LightSteelBlue;
+	   margin: 20px;
+	   padding: 20px;
    }
    section{
 	   display: grid;
@@ -92,67 +91,65 @@ input[type="button"] {
    }
    
    .dinamicTable, .dinamicTable2 {
-   height: 300px;
-   width: auto;
-   place-items: center;
-   grid-template-columns: 1fr;
+	   height: 300px;
+	   width: auto;
+	   place-items: center;
+	   grid-template-columns: 1fr;
    }
    
    .dinamicTable table, .dinamicTable2 table {
-   background-color: LightSteelBlue;
-   display: grid;
-   place-items: center;
-   grid-template-columns: 1fr;
-   background-color: orange;
+       background-color: LightSteelBlue;
+       display: grid;
+       place-items: center;
+       grid-template-columns: 1fr;
+       background-color: orange;
    }
    
    .dinamicTable td, .dinamicTable2 td{
-   padding: 15px;
-   margin: 10px;
+     padding: 15px;
+     margin: 10px;
    }
    tbody{
-   margin: 10px;
+     margin: 10px;
    }
    tr{
-   height: 25px;
-   padding: 15px;
+     height: 25px;
+     padding: 15px;
    }
    tableHeader{
-    display:none;   
+     display:none;   
    }
    
    .hide{
-   display: none;
+     display: none;
    }
    .red{
-   background-color: red;
-   color: red;
-   pointer-events: none;
+     background-color: red;
+     color: red;
+     pointer-events: none;
    }
    .redText{
-   color: red !important;
+     color: red !important;
    }
    .visible{
-   display: block;
+     display: block;
    }
    .orange{
-   background-color: orange;
+     background-color: orange;
    }
    .yellow{
-	   background-color: yellow;
+	 background-color: yellow;
    }
    .white{
-	color: white;
+	 color: white;
    }
-   
-   
+    
    #clientPage, #salonPage{
-   padding-bottom: 50px;
+     padding-bottom: 50px;
    }
    .tab {
      display: grid;
      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));	
-  
    }
    .tab button {
      background-color:#85144b;
@@ -174,20 +171,17 @@ input[type="button"] {
      border-top: none;
    }
 
-    
-  
+
       @media screen and (max-width: 980px) {
       .tab {
-	   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      }
-     
+	     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }    
       }
 	   
      @media screen and (max-width: 680px)  {
       .tab {
-		grid-template-columns: 1fr;
+	     grid-template-columns: 1fr;
       }
-	  
 	 input[type="button"] {
 		  font-size: 1.3rem;
 		  border-radius: 4px; 
@@ -195,8 +189,7 @@ input[type="button"] {
 	  input[type="text"] {
 		  height: 50px;
 		  font-size: 1.3rem;
-	  }
-	  
+	  }	  
 	 }
 	 
 	  @media screen and (max-width: 400px){
@@ -207,8 +200,7 @@ input[type="button"] {
 		 }
 		 .container {
 			 margin: 0;
-		 }
-		  
+		 }	  
 	  }
 
      
