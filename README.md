@@ -18,7 +18,7 @@ jsCalendar v1.4.3 library
 ## Setup
 To run this project, open HTML file in browser.
 
-Also it is available live: 
+Also available live: 
 https://justinajur.github.io/Kirpykla
 
 
